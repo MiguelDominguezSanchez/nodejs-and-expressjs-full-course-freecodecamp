@@ -13,8 +13,8 @@
 // __dirname  - path to current directory
 // __filename - file name
 // require    - function to use modules (CommonJS)
-// module     – info about current moduule (file)
-// process    - info abouut env where the program is being executed
+// module     – info about current module (file)
+// process    - info about env where the program is being executed
 
 // console.log(__dirname)
 // setInterval(() => {
@@ -45,7 +45,7 @@ const os = require('os')
 const user = os.userInfo()
 console.log(user)
 
-// method retuns the system uptime in seconds
+// method returns the system uptime in seconds
 console.log(`The system uptime is ${os.uptime()} seconds`)
 
 const currentOS = {
@@ -127,4 +127,25 @@ readFile('./content/first.txt', 'utf8', (err, result) => {
 */
 
 /////////////////////////////////////////////////////////////////
-//////////////////*  *////////////////////////
+//////////////////* Http Module (Septup) *////////////////////////
+
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+	// console.log(req)
+	if (req.url === '/') {
+		res.end('Welcome to our home page')
+	}
+	if (req.url === '/about') {
+		res.end('Here is our short history')
+	}
+	res.end(`
+    <h1>Oops!</h1>
+    <p>We can´t seem to find the page you are looking for</p>
+    <a href="/">back home</a>
+`)
+	// res.write('Welcome to our home page')
+	// res.end()
+})
+
+server.listen(5000)
