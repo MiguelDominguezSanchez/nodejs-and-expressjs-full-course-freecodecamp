@@ -57,7 +57,7 @@ const currentOS = {
 console.log(currentOS)
 */
 /////////////////////////////////////////////////////////////////
-
+/*
 const path = require('path')
 
 console.log(path.sep)
@@ -70,3 +70,23 @@ console.log(base)
 
 const absolute = path.resolve(__dirname, 'content', 'subfolder', 'test.txt')
 console.log(absolute)
+*/
+
+/////////////////////////////////////////////////////////////////
+//////////////////* Fs Module (Sync) *////////////////////////
+const { readFileSync, writeFileSync } = require('fs')
+/*
+const fs = require('fs')
+fs.read
+*/
+
+const first = readFileSync('./content/first.txt', 'utf8')
+const second = readFileSync('./content/second.txt', 'utf8')
+
+// console.log(first, second)
+
+writeFileSync(
+	'./content/result-sync.txt',
+	`Here is the result : ${first}, ${second}`,
+	{ flag: 'a' }
+)
