@@ -1,5 +1,7 @@
 // const amount = 12
 
+// const { version } = require('node:os')
+
 // if (amount < 10) {
 // 	console.log('small number')
 // } else {
@@ -128,7 +130,7 @@ readFile('./content/first.txt', 'utf8', (err, result) => {
 
 /////////////////////////////////////////////////////////////////
 //////////////////* Http Module (Septup) *////////////////////////
-
+/*
 const http = require('http')
 
 const server = http.createServer((req, res) => {
@@ -149,3 +151,35 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(5000)
+*/
+
+/////////////////////////////////////////////////////////////////
+//////////////////* NPM Command *////////////////////////
+
+// npm - global command, comes with node
+// npm --version
+
+// local dependency - use it only in this particular project
+// npm i <packageName>
+
+// global dependency  - use it in any project
+// npm install -g <packageName>
+// sudo npm install -g <packageName> (mac)
+
+// package.json - manifest file (stores important info about project/package)'
+// manual approach (create package.json in the root, create properties etc)
+// npm init (step by  step, press enter to skip)
+// npm init -y (everything default)
+
+/////////////////////////////////////////////////////////////////
+//////////////////* First Package *////////////////////////
+
+// manual approach (create package.json in the root, create properties etc)
+// npm init (step by step, press enter to skip)
+// npm init - y (everything default)
+
+const _ = require('lodash')
+
+const items = [1, [2, [3, [4]]]]
+const newItems = _.flattenDeep(items)
+console.log(newItems)
