@@ -38,6 +38,7 @@ require('./7-mind-grenade')
 /*min 5:49*/
 
 /////////////////////////////////////////////////////////////////
+/*
 const os = require('os')
 
 // info about current user
@@ -48,9 +49,24 @@ console.log(user)
 console.log(`The system uptime is ${os.uptime()} seconds`)
 
 const currentOS = {
-	name: os.type(),
+    name: os.type(),
 	release: os.release(),
 	totalMen: os.totalmem(),
 	freeMen: os.freemem(),
 }
 console.log(currentOS)
+*/
+/////////////////////////////////////////////////////////////////
+
+const path = require('path')
+
+console.log(path.sep)
+
+const filePath = path.join('/content/', 'subfolder', 'test.txt')
+console.log(filePath)
+
+const base = path.basename(filePath)
+console.log(base)
+
+const absolute = path.resolve(__dirname, 'content', 'subfolder', 'test.txt')
+console.log(absolute)
