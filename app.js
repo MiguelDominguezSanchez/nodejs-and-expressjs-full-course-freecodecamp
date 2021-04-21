@@ -178,9 +178,37 @@ server.listen(5000)
 // npm init (step by step, press enter to skip)
 // npm init - y (everything default)
 
+/*
 const _ = require('lodash')
 
 const items = [1, [2, [3, [4]]]]
 const newItems = _.flattenDeep(items)
 console.log(newItems)
 console.log('hello world')
+*/
+
+/////////////////////////////////////////////////////////////////
+//////////////////* Event Loop Slides *////////////////////////
+
+//////////////////* 1 *////////////////////////
+
+/*
+console.log('first task')
+console.time()
+for (let i = 0; i < 100000000; i++) {
+    const h3 = document.querySelector('h3')
+	h3.textContent = `Hey, everyone is waiting on me`
+}
+console.timeEnd()
+
+console.log('next task')
+*/
+
+//////////////////* 2 *////////////////////////
+
+console.log('first task')
+setTimeout(() => {
+	console.log('second task')
+}, 0)
+
+console.log('next task')
