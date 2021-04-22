@@ -410,6 +410,10 @@ http
 // console.log('Express Tutorial')
 
 const http = require('http')
+const { readFileSync } = require('fs')
+
+// get all files
+const homePage = readFileSync('./2-express-tutorial/index.html')
 
 const server = http.createServer((req, res) => {
 	// console.log('user hit the server')
@@ -420,7 +424,7 @@ const server = http.createServer((req, res) => {
 	if (url === '/') {
 		res.writeHead(200, { 'content-type': 'text/html' })
 		// res.end('home page')
-		res.write('<h1>home page</h1>')
+		res.write(homePage)
 		res.end()
 	} // about page
 	else if (url === '/about') {
