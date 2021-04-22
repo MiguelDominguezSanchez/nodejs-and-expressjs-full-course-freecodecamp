@@ -379,7 +379,7 @@ stream.on('error', (err) => console.log(err))
 */
 
 //////////////////* Streams - Http Example *////////////////////////
-
+/*
 // console.log('stream example')
 
 var http = require('http')
@@ -398,6 +398,7 @@ http
 		})
 	})
 	.listen(5000)
+*/
 
 //////////////////* End Of Node Tutorial Module *////////////////////////
 //////////////////* HTTP Request/Response Cycle *////////////////////////
@@ -405,6 +406,18 @@ http
 //////////////////* Starter Project Install *////////////////////////
 //////////////////* Starter Overview *////////////////////////
 //////////////////* Http Basics *////////////////////////
+
+// console.log('Express Tutorial')
+
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+	console.log('user hit the server')
+	res.end('home page')
+})
+
+server.listen(5000)
+
 //////////////////* Http - Headers *////////////////////////
 //////////////////* Http - Request Object *////////////////////////
 //////////////////* Http - Html File *////////////////////////
