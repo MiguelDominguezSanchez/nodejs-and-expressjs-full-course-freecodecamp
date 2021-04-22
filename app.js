@@ -357,7 +357,8 @@ customEmitter.emit('response', 'john', 34)
 */
 
 //////////////////* Streams - Read file *////////////////////////
-
+//////////////////* Streams - Additional Info *////////////////////////
+/*
 const { createReadStream } = require('fs')
 
 const stream = createReadStream('./content/big.txt', {
@@ -375,9 +376,29 @@ stream.on('data', (result) => {
 	console.log(result)
 })
 stream.on('error', (err) => console.log(err))
+*/
 
-//////////////////* Streams - Additional Info *////////////////////////
 //////////////////* Streams - Http Example *////////////////////////
+
+// console.log('stream example')
+
+var http = require('http')
+var fs = require('fs')
+
+http
+	.createServer(function (req, res) {
+		// const text = fs.readFileSync('./content/big.txt', 'utf8')
+		// res.end(text)
+		const fileStream = fs.createReadStream('./content/big.txt', 'utf8')
+		fileStream.on('open', () => {
+			fileStream.pipe(res)
+		})
+		fileStream.on('error', (err) => {
+			res.end(err)
+		})
+	})
+	.listen(5000)
+
 //////////////////* End Of Node Tutorial Module *////////////////////////
 //////////////////* HTTP Request/Response Cycle *////////////////////////
 //////////////////* Http Messages *////////////////////////
