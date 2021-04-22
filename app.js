@@ -301,7 +301,7 @@ server.listen(5000, () => {
 */
 
 //////////////////* *////////////////////////
-
+/*
 const { readFile, writeFile } = require('fs').promises
 // const util = require('util')
 // const readFilePromise = util.promisify(readFile)
@@ -338,3 +338,18 @@ start()
 // getText('./content/first.txt')
 // 	.then((result) => console.log(result))
 // 	.catch((err) => console.log(err))
+*/
+
+//////////////////* Events Emitters *////////////////////////
+
+const EventEmitter = require('events')
+
+const customEmitter = new EventEmitter()
+
+customEmitter.on('response', (name, id) => {
+	console.log(`data received ${name} with id.${id}`)
+})
+customEmitter.on('response', () => {
+	console.log(`some other logic here `)
+})
+customEmitter.emit('response', 'john', 34)
